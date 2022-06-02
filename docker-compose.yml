@@ -1,0 +1,14 @@
+version: '2'
+services:
+  kafka-ui:
+    image: provectuslabs/kafka-ui
+    container_name: kafka-uix
+    ports:
+      - "8080:8080"
+    restart: always
+    env_file:
+      - /home/ubuntu/Docker/var.env
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=KAFKA
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=${IPS}:9092
+      - KAFKA_CLUSTERS_0_ZOOKEEPER=${IPS}:2181
